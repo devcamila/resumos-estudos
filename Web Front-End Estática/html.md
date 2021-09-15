@@ -43,7 +43,7 @@ Exemplo:
 ou as que se fecham sozinhas (self-closing)  
 
     <img>
-    <br>
+       
     <input>
 
 **Comentar código**: ctrl + ;   
