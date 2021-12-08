@@ -121,7 +121,10 @@ exemplo:
 
 **_DISPLAY_**
     block: ocupa a linha inteira; 
-    inline: ocupa só o espaço da caixa;
+    inline: ocupa só o espaço da caixa e tem valores padrões;  
+    inline-block: continua inline mas recebendo propriedades do box model.  
+    none: remove o elemento.  
+
     flex: layout reponsivo em blocos;  
     flex-direction: row(linha) e column(colun);  
     justify-content: alinhamento horizontal do elementos;  

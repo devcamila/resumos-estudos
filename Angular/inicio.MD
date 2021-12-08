@@ -1,12 +1,12 @@
 ***Iniciando Projeto***
 
-    npm install -g @angular/cli
+    npm install -g @angular/cli (instalar angular)
 
-    ng new my-first-app
+    ng new my-first-app (iniciar novo projeto)
 
-    cd my-first-app
+    cd my-first-app (abrir pasta projeto)
 
-    ng serve
+    ng serve (rodar projeto)
 
 ---
 ***Instalat Bootstrap***

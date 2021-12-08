@@ -36,18 +36,28 @@ Trabalha nos dois fluxos.
     [(ngModel)]="randomText"
 
 ---
-**Pai para filho (Input)**
+**Pai para filho (Input)** filho pega  
 Filho está recebendo do componente pai.  
+
+
+*ts pai:*
+
+     frase: string ="eu sou seu pai" (CRIO UM DADO)
+
 
 *html pai:*
 
-    <app-child-component [element]="myElement"></app-child-component>
+    <app-filho [paiFrase]='frase' ></app-filho> (CHAMO A TAG FILHO FAZENDO UM BIND, atribuindo a váriavel do filho aos dados do pai)
 
 
-*ts:* 
-    export class AppChildComponent {
-         @Input() element: string;
+*ts filho:* 
+    export class FilhoComponent {
+         @Input() paiFrase!:string (CRIO UMA VARIAVEL QUE IRA RECEBER OS DADOS)
     }
+
+*html filho:* 
+
+    <p>{{paiFrase}}</p> (CHAMO OS DADOS PELA VARIAVEL QUE CRIEI)
 
 *para acessar com outro nome:* 
     @Input('fireElement') element: string;
@@ -55,28 +65,39 @@ Filho está recebendo do componente pai.
 
 
 ---
-**Filho para pai (Output)**
+**Filho para pai (Output)** filho manda por meio de eventos
+
+*html child:*
+
+    <button (click)="onClick"> Emitir Evento </button>
+
+    (Crio um botão que chamará a função e emitirá o evento)
 
 *ts. child:*
-    @Output() elementCreated = new EventEmitter<{elementName: string}>();
 
-Dessa forma estamos criando um evento como outro qualquer, como o evento click por exemplo, porém customizado e nomeado de elementCreated. Esse evento irá emitir com ele um objeto com o nome do elemento.  
+    fraseFilho: string = 'Eu sou seu filho' (CRIO O DADO)
 
-    onCreateElement() {
-        this.elementCreated.emit();
+    @Output() nomeEvento = new EventEmitter<TIPO_DE_DADO>(); (CRIO O EVENTO)
+
+    onclick(){
+        this.nomeEvento.emit(this.fraseFilho); (CRIO A FUNÇÃO QUE APARTIR DO EVENTO VAI EMITIR O DADO)
     }
-
-A função onCreateElement será chamada toda vez que um elemento for criado no componente filho, e ao ser chamada, o evento elementCreated será emitido para os componentes pais.  
 
 *html pai:*
 
-    <app-child-component (elementCreated)="onElementCreated($event)"></app-child-component>
+    <app-filho (clickEvt)="onClickEvt($event)"></app-filho> 
 
-Agora, toda vez que o evento elementCreated ocorrer no componente filho, a função onElementCreated do componente pai será executada, recebendo os dados emitidos pelo componente filho através do **$event**.
+    (CHAMANDO O EVENTO clickEvt ELE EXECUTARÁ A FUNÇÃO onClickEvt E RECEBERÁ OS DADOS EMITIDOS PELO COMPONENTE FILHO ATRAVES DO $event.
 
-*para acessar com outro nome:*
-    @Output('elmCreated') elementCreated: string;
-    o evento será elmCreated
+*ts. pai:*
 
+     pegarFraseFilho: any; (CRIO VARIÁVEL PARA GUARDAR ESSE DADO)
 
+     onClickEvt(pegarFraseFilho: any) {
+      this.pegarFraseFilho = pegarFraseFilho
+     }
+
+     (FUNÇÃO QUE RECEBERÁ ESSE DADO)
+
+---
 ***Referências locais em Templates***
