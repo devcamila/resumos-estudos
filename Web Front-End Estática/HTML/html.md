@@ -85,18 +85,23 @@ Exemplo:
 
 ---
 ***ELEMENTOS SEMÂNTICOS***  
-Comportam-se como divs na página, mas eles tem significado.  
-
+Tags que marcam pontos de referência (**landmarks**) comportam-se como divs na página, mas eles tem significado.     
 **Os principais são**:  
-**main**: conteúdo principal do documento.  
+**header**: uma área, geralmente acima do conteúdo main, onde situa-se comumente o banner e a navegação.  
+**nav**: marca um bloco de navegação. (Atributo *aria-label* deve ser maracado com primária ou secundária.)     
+**main**: conteúdo principal do documento.   
+**article**: um conteúdo independente, como o post de um blog.
 **section**: uma subdivisão do documento dentro do main.  
-**article**: um conteúdo independente, como o post de um blog.  
 **aside**: conteúdo "lateral" como menus ou área de anúncios (ads) em um blog/site.  
-**header**: uma área, geralmente acima do conteúdo main, onde situa-se comumente a navegação.  
 **footer**: rodapé, geralmente apresenta um mapa do site.  
-**nav**: um componente de navegação com links ou botões para as diversas páginas.  
 **figure**: um pequeno conteúdo a parte do todo, como uma imagem ou vídeo. Pode usar figcaption como legenda.  
 **template**: um conteúdo HTML que será utilizado por javascript. Ele por padrão não aparece na página.
+
+**blockquote**: marca uma citação extensa. O atributo *cite* é usando para linkar a fonte.
+**q**: marca uma citação inline. Dentro de um p, por exemplo.       
+**cite**: para citar o nome de um trabalho, livro, filme ou peça.
+
+*Obs:* Podem haver dentro da tag main(por exemplo), um header e um footer.
 
 ---
 ***Divisões de texto***:  
@@ -109,8 +114,9 @@ Comportam-se como divs na página, mas eles tem significado.
 ---
 ***Formatação de texto***:  
 
-**b ou strong**: negrito; //prioridade a tags strong e em, são mais semânticas.  
-**i ou em**: itálico;  
+**b ou strong**: negrito. A tag **strong** realça algo importante.
+**i ou em**: itálico. A tag *em* dá enfase;     
+    //prioridade a tags strong e em, pois, são mais semânticas.
 **u**: sublinhado;  
 **sub**: texto subscrito;  
 **sup**: texto superscrito;  
@@ -136,7 +142,10 @@ Comportam-se como divs na página, mas eles tem significado.
 
 **ol**: lista enumerada (ordenada);  
 **ul**: lista não-ordenada;  
-**li**: item de lista;  
+    **li**: item de lista;  
+**dl**: lista de descrições;
+    **dt**: marca o termo;
+    **dd**: marca a definição;
 
 ---
 ***Tabelas***:  
